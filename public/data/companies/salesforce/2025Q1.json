@@ -36,7 +36,7 @@
       "color": "neutral"
     },
     {
-      "source": "Professional Services",
+      "source": "Professional Services and Other",
       "target": "Revenue",
       "value": 532,
       "color": "neutral"
@@ -44,56 +44,8 @@
     {
       "source": "Revenue",
       "target": "Cost",
-      "value": 8287,
-      "color": "red"
-    },
-    {
-      "source": "Cost",
-      "target": "Cost of Revenue",
       "value": 2265,
       "color": "red"
-    },
-    {
-      "source": "Cost",
-      "target": "R&D",
-      "value": 1460,
-      "color": "red"
-    },
-    {
-      "source": "Cost",
-      "target": "Sales & Marketing",
-      "value": 3429,
-      "color": "red"
-    },
-    {
-      "source": "Cost",
-      "target": "General & Admin",
-      "value": 697,
-      "color": "red"
-    },
-    {
-      "source": "Cost",
-      "target": "Restructuring",
-      "value": 36,
-      "color": "red"
-    },
-    {
-      "source": "Cost",
-      "target": "Other Expenses",
-      "value": 63,
-      "color": "red"
-    },
-    {
-      "source": "Cost",
-      "target": "Income Tax",
-      "value": 433,
-      "color": "red"
-    },
-    {
-      "source": "Other Income",
-      "target": "Revenue",
-      "value": 95,
-      "color": "neutral"
     },
     {
       "source": "Revenue",
@@ -102,39 +54,57 @@
       "color": "green"
     },
     {
-      "source": "Gross Profit",
-      "target": "Income Tax Provision",
-      "value": 433,
-      "color": "red"
-    },
-    {
-      "source": "Gross Profit",
-      "target": "Net Income",
-      "value": 1541,
-      "color": "green"
-    },
-    {
-      "source": "Cost of Revenue",
-      "target": "Subscription Support Costs",
+      "source": "Cost",
+      "target": "Subscription and Support COGS",
       "value": 1611,
       "color": "red"
     },
     {
-      "source": "Cost of Revenue",
-      "target": "Professional Services Costs",
+      "source": "Cost",
+      "target": "Professional Services COGS",
       "value": 654,
       "color": "red"
     },
     {
-      "source": "Sales & Marketing",
-      "target": "Commissions & Compensation",
-      "value": 2400,
+      "source": "Gross Profit",
+      "target": "Operating Expenses",
+      "value": 5622,
       "color": "red"
     },
     {
-      "source": "Sales & Marketing",
-      "target": "Other Sales & Marketing",
-      "value": 1029,
+      "source": "Operating Expenses",
+      "target": "R&D",
+      "value": 1460,
+      "color": "red"
+    },
+    {
+      "source": "Operating Expenses",
+      "target": "Sales & Marketing",
+      "value": 3429,
+      "color": "red"
+    },
+    {
+      "source": "Operating Expenses",
+      "target": "General & Admin",
+      "value": 697,
+      "color": "red"
+    },
+    {
+      "source": "Operating Expenses",
+      "target": "Restructuring",
+      "value": 36,
+      "color": "red"
+    },
+    {
+      "source": "Gross Profit",
+      "target": "Net Profit",
+      "value": 1541,
+      "color": "green"
+    },
+    {
+      "source": "Net Profit",
+      "target": "Income Tax",
+      "value": 433,
       "color": "red"
     }
   ]

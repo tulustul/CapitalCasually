@@ -12,12 +12,6 @@
       "color": "neutral"
     },
     {
-      "source": "Gaming",
-      "target": "Revenue",
-      "value": 3763,
-      "color": "neutral"
-    },
-    {
       "source": "Professional Visualization",
       "target": "Revenue",
       "value": 509,

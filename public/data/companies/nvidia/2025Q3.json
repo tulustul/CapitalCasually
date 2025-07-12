@@ -24,12 +24,6 @@
       "color": "neutral"
     },
     {
-      "source": "Automotive",
-      "target": "Revenue",
-      "value": 567,
-      "color": "neutral"
-    },
-    {
       "source": "OEM and Other",
       "target": "Revenue",
       "value": 111,

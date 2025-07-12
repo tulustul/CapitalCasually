@@ -6,24 +6,6 @@
   ],
   "flow": [
     {
-      "source": "Data Center",
-      "target": "Revenue",
-      "value": 39112,
-      "color": "neutral"
-    },
-    {
-      "source": "Gaming",
-      "target": "Revenue",
-      "value": 3763,
-      "color": "neutral"
-    },
-    {
-      "source": "Professional Visualization",
-      "target": "Revenue",
-      "value": 509,
-      "color": "neutral"
-    },
-    {
       "source": "Automotive",
       "target": "Revenue",
       "value": 567,

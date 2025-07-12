@@ -88,12 +88,6 @@
 
     {
       "source": "Cost of Revenue",
-      "target": "H20 Charge",
-      "value": 4500,
-      "color": "red"
-    },
-    {
-      "source": "Cost of Revenue",
       "target": "Other COGS",
       "value": 12894,
       "color": "red"

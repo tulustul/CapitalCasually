@@ -98,13 +98,6 @@
       "value": 12894,
       "color": "red"
     },
-
-    {
-      "source": "R&D",
-      "target": "Compensation & Benefits",
-      "value": 1063,
-      "color": "red"
-    },
     { "source": "R&D", "target": "Other R&D", "value": 2926, "color": "red" }
   ]
 }

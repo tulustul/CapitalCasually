@@ -137,13 +137,8 @@ export function Sankey({ data, width = 800, height = 600 }: SankeyProps) {
   }, [data, width, height]);
 
   return (
-    <div className="w-full">
-      <svg
-        ref={svgRef}
-        width={width}
-        height={height}
-        className="bg-gray-800 rounded-lg border border-gray-700"
-      />
+    <div className="max-w-full">
+      <svg ref={svgRef} width={width} height={height} />
     </div>
   );
 }

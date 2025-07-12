@@ -4,14 +4,14 @@
   "name": "Nvidia",
   "description": "Nvidia Corporation is an American multinational technology company incorporated in Delaware and based in Santa Clara, California. It designs graphics processing units (GPUs) for gaming and professional markets, as well as system on a chip units (SoCs) for the mobile computing and automotive markets.",
   "datasets": [
-    "2026Q1",
-    "2025Q4",
-    "2025Q3",
-    "2025Q2",
-    "2025Q1",
-    "2024Q4",
-    "2024Q3",
+    "2024Q1",
     "2024Q2",
-    "2024Q1"
+    "2024Q3",
+    "2024Q4",
+    "2025Q1",
+    "2025Q2",
+    "2025Q3",
+    "2025Q4",
+    "2026Q1"
   ]
 }
