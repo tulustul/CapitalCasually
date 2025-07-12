@@ -36,14 +36,14 @@ export function Sankey({ data, width = 800, height = 600 }: SankeyProps) {
     const svg = d3.select(svgRef.current);
     svg.selectAll("*").remove(); // Clear previous render
 
-    const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+    const margin = { top: 20, right: 80, bottom: 20, left: 80 };
     const innerWidth = width - margin.left - margin.right;
     const innerHeight = height - margin.top - margin.bottom;
 
     // Create sankey generator
     const sankeyGenerator = sankey()
-      .nodeWidth(45)
-      .nodePadding(30)
+      .nodeWidth(55)
+      .nodePadding(40)
       // .nodeSort((a, b) => (b.value ?? 0) - (a.value ?? 0))
       .nodeAlign(sankeyCenter)
       .extent([
@@ -71,14 +71,31 @@ export function Sankey({ data, width = 800, height = 600 }: SankeyProps) {
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    // Color scale for nodes
-    const nodeColor = d3.scaleOrdinal(d3.schemeCategory10);
-
     // Color mapping for links
     const linkColorMap = {
       green: "#10b981",
       red: "#ef4444",
       neutral: "#64748b",
+    };
+
+    // Darker versions for nodes
+    const nodeColorMap = {
+      green: "#065f46", // darker green
+      red: "#991b1b", // darker red
+      neutral: "#374151", // darker gray
+    };
+
+    // Function to get node color based on first incoming link
+    const getNodeColor = (nodeName: string) => {
+      const incomingLink = data.find((link) => link.target === nodeName);
+      if (!incomingLink) {
+        // Starting node - use dark neutral
+        return nodeColorMap.neutral;
+      }
+      return (
+        nodeColorMap[incomingLink.color as keyof typeof nodeColorMap] ||
+        nodeColorMap.neutral
+      );
     };
 
     // Draw links
@@ -112,32 +129,45 @@ export function Sankey({ data, width = 800, height = 600 }: SankeyProps) {
       .attr("y", (d: any) => d.y0)
       .attr("height", (d: any) => d.y1 - d.y0)
       .attr("width", (d: any) => d.x1 - d.x0)
-      .attr("fill", (_: any, i: number) => nodeColor(i.toString()));
+      .attr("fill", (d: any) => getNodeColor(d.name));
 
-    // Add node labels with values
+    // Add node value labels inside nodes
     g.append("g")
       .selectAll("text")
       .data(nodes)
       .enter()
       .append("text")
-      .attr("x", (d: any) => (d.x0 < innerWidth / 2 ? d.x1 + 6 : d.x0 - 6))
+      .attr("x", (d: any) => (d.x0 + d.x1) / 2)
       .attr("y", (d: any) => (d.y1 + d.y0) / 2)
       .attr("dy", "0.35em")
-      .attr("text-anchor", (d: any) =>
-        d.x0 < innerWidth / 2 ? "start" : "end",
-      )
-      .attr("fill", "#e5e7eb")
-      .attr("font-size", "12px")
+      .attr("text-anchor", "middle")
+      .attr("fill", "#ffffff")
+      .attr("font-size", "14px")
+      .attr("font-weight", "bold")
       .text((d: any) => {
         const value = d.value || 0;
         const formattedValue =
           value >= 1000 ? `$${(value / 1000).toFixed(1)}B` : `$${value}M`;
-        return `${d.name} (${formattedValue})`;
+        return formattedValue;
       });
+
+    // Add node name labels below nodes
+    g.append("g")
+      .selectAll("text")
+      .data(nodes)
+      .enter()
+      .append("text")
+      .attr("x", (d: any) => (d.x0 + d.x1) / 2)
+      .attr("y", (d: any) => d.y1 + 15)
+      .attr("text-anchor", "middle")
+      .attr("fill", "#e5e7eb")
+      .attr("font-size", "14px")
+      .attr("font-weight", "bold")
+      .text((d: any) => d.name);
   }, [data, width, height]);
 
   return (
-    <div className="max-w-full">
+    <div className="overflow-x-auto">
       <svg ref={svgRef} width={width} height={height} />
     </div>
   );

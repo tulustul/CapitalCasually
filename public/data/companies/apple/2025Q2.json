@@ -1,0 +1,76 @@
+{
+  "$schema": "../../schemas/CapitalData.schema.json",
+  "name": "Apple 2025Q2",
+  "sources": [
+    "https://s2.q4cdn.com/470004039/files/doc_earnings/2025/q2/filing/10Q-Q2-2025-as-filed.pdf"
+  ],
+  "flow": [
+    {
+      "source": "iPhone",
+      "target": "Revenue",
+      "value": 46841,
+      "color": "neutral"
+    },
+    { "source": "Mac", "target": "Revenue", "value": 7949, "color": "neutral" },
+    {
+      "source": "iPad",
+      "target": "Revenue",
+      "value": 6402,
+      "color": "neutral"
+    },
+    {
+      "source": "Wearables, Home and Accessories",
+      "target": "Revenue",
+      "value": 7522,
+      "color": "neutral"
+    },
+    {
+      "source": "Services",
+      "target": "Revenue",
+      "value": 26645,
+      "color": "neutral"
+    },
+
+    { "source": "Revenue", "target": "Cost", "value": 65504, "color": "red" },
+
+    { "source": "Cost", "target": "R&D", "value": 8550, "color": "red" },
+    {
+      "source": "Cost",
+      "target": "Cost of Product Sales",
+      "value": 44030,
+      "color": "red"
+    },
+    {
+      "source": "Cost",
+      "target": "Cost of Services",
+      "value": 6462,
+      "color": "red"
+    },
+    {
+      "source": "Cost",
+      "target": "Sales & Admin",
+      "value": 6728,
+      "color": "red"
+    },
+
+    {
+      "source": "Revenue",
+      "target": "Gross Profit",
+      "value": 29310,
+      "color": "green"
+    },
+
+    {
+      "source": "Gross Profit",
+      "target": "Income Tax",
+      "value": 4530,
+      "color": "red"
+    },
+    {
+      "source": "Gross Profit",
+      "target": "Net Profit",
+      "value": 24780,
+      "color": "green"
+    }
+  ]
+}

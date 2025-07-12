@@ -149,12 +149,6 @@
 
     {
       "source": "Other Expense",
-      "target": "Interest Income",
-      "value": -597,
-      "color": "green"
-    },
-    {
-      "source": "Other Expense",
       "target": "Interest Expense",
       "value": 594,
       "color": "red"

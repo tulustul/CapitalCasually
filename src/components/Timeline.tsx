@@ -4,7 +4,7 @@ type Props = {
   onChange: (value: string) => void;
 };
 
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, type ReactElement } from "react";
 
 export function Timeline({ quarters, value, onChange }: Props) {
   const timelineRef = useRef<HTMLDivElement>(null);
@@ -92,8 +92,9 @@ export function Timeline({ quarters, value, onChange }: Props) {
         {/* Quarter labels positioned above each quarter */}
         <div className="absolute top-0 left-0 right-0 pointer-events-none">
           {quarters.map((quarter, index) => {
-            const position = quarters.length > 1 ? (index / (quarters.length - 1)) * 100 : 50;
-            
+            const position =
+              quarters.length > 1 ? (index / (quarters.length - 1)) * 100 : 50;
+
             return (
               <span
                 key={quarter}
@@ -113,24 +114,31 @@ export function Timeline({ quarters, value, onChange }: Props) {
         {/* Year labels positioned in the middle of each year */}
         <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
           {(() => {
-            const yearLabels = [];
+            const yearLabels: ReactElement[] = [];
             const processedYears = new Set();
-            
-            quarters.forEach((quarter, index) => {
+
+            quarters.forEach((quarter) => {
               const currentYear = getYear(quarter);
-              
+
               if (!processedYears.has(currentYear)) {
                 processedYears.add(currentYear);
-                
+
                 // Find all quarters in this year
-                const yearQuarters = quarters.filter(q => getYear(q) === currentYear);
+                const yearQuarters = quarters.filter(
+                  (q) => getYear(q) === currentYear,
+                );
                 const firstYearIndex = quarters.indexOf(yearQuarters[0]);
-                const lastYearIndex = quarters.indexOf(yearQuarters[yearQuarters.length - 1]);
-                
+                const lastYearIndex = quarters.indexOf(
+                  yearQuarters[yearQuarters.length - 1],
+                );
+
                 // Calculate middle position
                 const middleIndex = (firstYearIndex + lastYearIndex) / 2;
-                const position = quarters.length > 1 ? (middleIndex / (quarters.length - 1)) * 100 : 50;
-                
+                const position =
+                  quarters.length > 1
+                    ? (middleIndex / (quarters.length - 1)) * 100
+                    : 50;
+
                 yearLabels.push(
                   <span
                     key={currentYear}
@@ -138,11 +146,11 @@ export function Timeline({ quarters, value, onChange }: Props) {
                     style={{ left: `${position}%` }}
                   >
                     {currentYear}
-                  </span>
+                  </span>,
                 );
               }
             });
-            
+
             return yearLabels;
           })()}
         </div>
