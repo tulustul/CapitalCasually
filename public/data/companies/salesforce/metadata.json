@@ -1,0 +1,7 @@
+{
+  "$schema": "../../schemas/CapitalMetadata.schema.json",
+  "type": "company",
+  "name": "Salesforce",
+  "description": "Salesforce, Inc. is an American cloud-based software company headquartered in San Francisco, California. It provides customer relationship management software and applications focused on sales and customer service.",
+  "datasets": ["2025Q1"]
+}

@@ -1,0 +1,141 @@
+{
+  "$schema": "../../schemas/CapitalData.schema.json",
+  "name": "Microsoft 2025Q3",
+  "sources": [
+    "https://d18rn0p25nwr6d.cloudfront.net/CIK-0001108524/2485a923-0ec5-4230-8951-bf7b31815cf0.pdf"
+  ],
+  "flow": [
+    {
+      "source": "Sales",
+      "target": "Revenue",
+      "value": 2131,
+      "color": "neutral"
+    },
+    {
+      "source": "Service",
+      "target": "Revenue",
+      "value": 2334,
+      "color": "neutral"
+    },
+    {
+      "source": "Platform and Other",
+      "target": "Revenue",
+      "value": 1963,
+      "color": "neutral"
+    },
+    {
+      "source": "Marketing and Commerce",
+      "target": "Revenue",
+      "value": 1325,
+      "color": "neutral"
+    },
+    {
+      "source": "Integration and Analytics",
+      "target": "Revenue",
+      "value": 1544,
+      "color": "neutral"
+    },
+    {
+      "source": "Professional Services",
+      "target": "Revenue",
+      "value": 532,
+      "color": "neutral"
+    },
+    {
+      "source": "Revenue",
+      "target": "Cost",
+      "value": 8287,
+      "color": "red"
+    },
+    {
+      "source": "Cost",
+      "target": "Cost of Revenue",
+      "value": 2265,
+      "color": "red"
+    },
+    {
+      "source": "Cost",
+      "target": "R&D",
+      "value": 1460,
+      "color": "red"
+    },
+    {
+      "source": "Cost",
+      "target": "Sales & Marketing",
+      "value": 3429,
+      "color": "red"
+    },
+    {
+      "source": "Cost",
+      "target": "General & Admin",
+      "value": 697,
+      "color": "red"
+    },
+    {
+      "source": "Cost",
+      "target": "Restructuring",
+      "value": 36,
+      "color": "red"
+    },
+    {
+      "source": "Cost",
+      "target": "Other Expenses",
+      "value": 63,
+      "color": "red"
+    },
+    {
+      "source": "Cost",
+      "target": "Income Tax",
+      "value": 433,
+      "color": "red"
+    },
+    {
+      "source": "Other Income",
+      "target": "Revenue",
+      "value": 95,
+      "color": "neutral"
+    },
+    {
+      "source": "Revenue",
+      "target": "Gross Profit",
+      "value": 7564,
+      "color": "green"
+    },
+    {
+      "source": "Gross Profit",
+      "target": "Income Tax Provision",
+      "value": 433,
+      "color": "red"
+    },
+    {
+      "source": "Gross Profit",
+      "target": "Net Income",
+      "value": 1541,
+      "color": "green"
+    },
+    {
+      "source": "Cost of Revenue",
+      "target": "Subscription Support Costs",
+      "value": 1611,
+      "color": "red"
+    },
+    {
+      "source": "Cost of Revenue",
+      "target": "Professional Services Costs",
+      "value": 654,
+      "color": "red"
+    },
+    {
+      "source": "Sales & Marketing",
+      "target": "Commissions & Compensation",
+      "value": 2400,
+      "color": "red"
+    },
+    {
+      "source": "Sales & Marketing",
+      "target": "Other Sales & Marketing",
+      "value": 1029,
+      "color": "red"
+    }
+  ]
+}

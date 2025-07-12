@@ -7,6 +7,14 @@
         {
           "name": "Nvidia",
           "path": "companies/nvidia"
+        },
+        {
+          "name": "Microsoft",
+          "path": "companies/microsoft"
+        },
+        {
+          "name": "Salesforce",
+          "path": "companies/salesforce"
         }
       ]
     },

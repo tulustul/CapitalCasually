@@ -28,4 +28,16 @@ export type CapitalMetadata = JsonType & {
 
 export type CapitalData = JsonType & {
   name: string;
+  sources: string[];
+  notes?: string;
+  flow?: CapitalFlow[];
+};
+
+export type CapitalFlowColor = "green" | "red" | "neutral";
+
+export type CapitalFlow = {
+  source: string;
+  target: string;
+  value: number;
+  color: CapitalFlowColor;
 };

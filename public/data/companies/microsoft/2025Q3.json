@@ -1,0 +1,169 @@
+{
+  "$schema": "../../schemas/CapitalData.schema.json",
+  "name": "Microsoft 2025Q3",
+  "sources": [
+    "https://view.officeapps.live.com/op/view.aspx?src=https://cdn-dynmedia-1.microsoft.com/is/content/microsoftcorp/MSFT_FY25Q3_10Q"
+  ],
+  "flow": [
+    {
+      "source": "Server Products & Cloud Services",
+      "target": "Revenue",
+      "value": 24761,
+      "color": "neutral"
+    },
+    {
+      "source": "Microsoft 365 Commercial",
+      "target": "Revenue",
+      "value": 21883,
+      "color": "neutral"
+    },
+    {
+      "source": "Gaming",
+      "target": "Revenue",
+      "value": 5721,
+      "color": "neutral"
+    },
+    {
+      "source": "LinkedIn",
+      "target": "Revenue",
+      "value": 4311,
+      "color": "neutral"
+    },
+    {
+      "source": "Windows and Devices",
+      "target": "Revenue",
+      "value": 4144,
+      "color": "neutral"
+    },
+    {
+      "source": "Search and News Advertising",
+      "target": "Revenue",
+      "value": 3504,
+      "color": "neutral"
+    },
+    {
+      "source": "Enterprise and Partner Services",
+      "target": "Revenue",
+      "value": 1946,
+      "color": "neutral"
+    },
+    {
+      "source": "Dynamics Products & Cloud Services",
+      "target": "Revenue",
+      "value": 1929,
+      "color": "neutral"
+    },
+    {
+      "source": "Microsoft 365 Consumer",
+      "target": "Revenue",
+      "value": 1821,
+      "color": "neutral"
+    },
+    {
+      "source": "Other",
+      "target": "Revenue",
+      "value": 46,
+      "color": "neutral"
+    },
+
+    {
+      "source": "Revenue",
+      "target": "Cost",
+      "value": 38066,
+      "color": "red"
+    },
+    {
+      "source": "Cost",
+      "target": "Cost of Revenue",
+      "value": 21919,
+      "color": "red"
+    },
+    {
+      "source": "Cost",
+      "target": "R&D",
+      "value": 8198,
+      "color": "red"
+    },
+    {
+      "source": "Cost",
+      "target": "Sales & Marketing",
+      "value": 6212,
+      "color": "red"
+    },
+    {
+      "source": "Cost",
+      "target": "General & Admin",
+      "value": 1737,
+      "color": "red"
+    },
+
+    {
+      "source": "Revenue",
+      "target": "Gross Margin",
+      "value": 48147,
+      "color": "green"
+    },
+    {
+      "source": "Gross Margin",
+      "target": "Operating Income",
+      "value": 32000,
+      "color": "green"
+    },
+    {
+      "source": "Operating Income",
+      "target": "Other Expense",
+      "value": 623,
+      "color": "red"
+    },
+    {
+      "source": "Operating Income",
+      "target": "Income Before Tax",
+      "value": 31377,
+      "color": "green"
+    },
+    {
+      "source": "Income Before Tax",
+      "target": "Income Tax",
+      "value": 5553,
+      "color": "red"
+    },
+    {
+      "source": "Income Before Tax",
+      "target": "Net Income",
+      "value": 25824,
+      "color": "green"
+    },
+
+    {
+      "source": "Cost of Revenue",
+      "target": "Product Costs",
+      "value": 3037,
+      "color": "red"
+    },
+    {
+      "source": "Cost of Revenue",
+      "target": "Service & Other Costs",
+      "value": 18882,
+      "color": "red"
+    },
+
+    {
+      "source": "Other Expense",
+      "target": "Interest Income",
+      "value": -597,
+      "color": "green"
+    },
+    {
+      "source": "Other Expense",
+      "target": "Interest Expense",
+      "value": 594,
+      "color": "red"
+    },
+    {
+      "source": "Other Expense",
+      "target": "Investment Losses & Other",
+      "value": 626,
+      "color": "red"
+    }
+  ]
+}
