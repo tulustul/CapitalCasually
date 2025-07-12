@@ -1,0 +1,18 @@
+{
+  "$schema": "./schemas/DataIndex.schema.json",
+  "sections": [
+    {
+      "name": "Companies",
+      "sections": [
+        {
+          "name": "Nvidia",
+          "path": "companies/nvidia"
+        }
+      ]
+    },
+    {
+      "name": "Countries",
+      "sections": []
+    }
+  ]
+}
