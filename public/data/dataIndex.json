@@ -6,19 +6,23 @@
       "sections": [
         {
           "name": "Nvidia",
-          "path": "companies/nvidia"
+          "path": "companies/nvidia",
+          "logoSmall": "companies/nvidia/logo-small.svg"
         },
         {
           "name": "Microsoft",
-          "path": "companies/microsoft"
+          "path": "companies/microsoft",
+          "logoSmall": "companies/microsoft/logo-small.png"
         },
         {
           "name": "Salesforce",
-          "path": "companies/salesforce"
+          "path": "companies/salesforce",
+          "logoSmall": "companies/salesforce/logo-small.png"
         },
         {
           "name": "Apple",
-          "path": "companies/apple"
+          "path": "companies/apple",
+          "logoSmall": "companies/apple/logo.svg"
         }
       ]
     },

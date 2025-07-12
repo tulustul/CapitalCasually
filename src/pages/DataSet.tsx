@@ -88,11 +88,13 @@ export function DataSet() {
           <p className="text-gray-300 mb-6 text-lg">{metadata.description}</p>
         )}
 
-        <Timeline
-          quarters={metadata.datasets}
-          value={dataset ?? metadata.datasets[metadata.datasets.length - 1]}
-          onChange={setDataset}
-        />
+        {metadata.datasets.length > 1 && (
+          <Timeline
+            quarters={metadata.datasets}
+            value={dataset ?? metadata.datasets[metadata.datasets.length - 1]}
+            onChange={setDataset}
+          />
+        )}
 
         {capitalData.flow && (
           <Sankey data={capitalData.flow} width={1400} height={600} />

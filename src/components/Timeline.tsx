@@ -79,7 +79,7 @@ export function Timeline({ quarters, value, onChange }: Props) {
 
         {/* Timeline tick marks */}
         <div className="flex justify-between relative items-start pointer-events-none">
-          {quarters.map((quarter, index) => {
+          {quarters.map((quarter) => {
             return (
               <div key={quarter} className="flex flex-col items-center">
                 {/* Small tick mark */}

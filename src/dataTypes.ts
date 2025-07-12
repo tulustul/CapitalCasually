@@ -17,12 +17,15 @@ export type DataIndexSection = {
   sections?: DataIndexSection[];
   description?: string;
   path?: string;
+  logoSmall?: string;
 };
 
 export type CapitalMetadata = JsonType & {
   name: string;
   type: CapitalType;
   description?: string;
+  logoSmall?: string;
+  logoBig?: string;
   datasets: string[];
 };
 

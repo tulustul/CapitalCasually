@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import {
   sankey,
@@ -27,6 +27,7 @@ interface SankeyProps {
 
 export function Sankey({ data, width = 800, height = 600 }: SankeyProps) {
   const svgRef = useRef<SVGSVGElement>(null);
+  const [hoveredNode, setHoveredNode] = useState<string | null>(null);
 
   useEffect(() => {
     if (!svgRef.current || !data) {
@@ -87,6 +88,11 @@ export function Sankey({ data, width = 800, height = 600 }: SankeyProps) {
 
     // Function to get node color based on first incoming link
     const getNodeColor = (nodeName: string) => {
+      // Highlight color for hovered node
+      if (hoveredNode === nodeName) {
+        return "#3b82f6"; // bright blue for highlighted
+      }
+
       const incomingLink = data.find((link) => link.target === nodeName);
       if (!incomingLink) {
         // Starting node - use dark neutral
@@ -129,7 +135,14 @@ export function Sankey({ data, width = 800, height = 600 }: SankeyProps) {
       .attr("y", (d: any) => d.y0)
       .attr("height", (d: any) => d.y1 - d.y0)
       .attr("width", (d: any) => d.x1 - d.x0)
-      .attr("fill", (d: any) => getNodeColor(d.name));
+      .attr("fill", (d: any) => getNodeColor(d.name))
+      .style("cursor", "pointer")
+      .on("mouseenter", (_: any, d: any) => {
+        setHoveredNode(d.name);
+      })
+      .on("mouseleave", () => {
+        setHoveredNode(null);
+      });
 
     // Add node value labels inside nodes
     g.append("g")
@@ -160,11 +173,20 @@ export function Sankey({ data, width = 800, height = 600 }: SankeyProps) {
       .attr("x", (d: any) => (d.x0 + d.x1) / 2)
       .attr("y", (d: any) => d.y1 + 15)
       .attr("text-anchor", "middle")
-      .attr("fill", "#e5e7eb")
+      .attr("fill", (d: any) =>
+        hoveredNode === d.name ? "#3b82f6" : "#e5e7eb",
+      )
       .attr("font-size", "14px")
       .attr("font-weight", "bold")
+      .style("cursor", "pointer")
+      .on("mouseenter", (_: any, d: any) => {
+        setHoveredNode(d.name);
+      })
+      .on("mouseleave", () => {
+        setHoveredNode(null);
+      })
       .text((d: any) => d.name);
-  }, [data, width, height]);
+  }, [data, width, height, hoveredNode]);
 
   return (
     <div className="overflow-x-auto">

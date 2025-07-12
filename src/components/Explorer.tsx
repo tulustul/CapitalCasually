@@ -68,13 +68,20 @@ export function Explorer() {
                 <button
                   key={section.name}
                   onClick={() => handleSectionClick(section)}
-                  className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors border-none ${
+                  className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors border-none flex items-center gap-3 ${
                     selectedSection?.name === section.name
                       ? "bg-blue-600 text-white"
                       : "bg-gray-700 text-gray-200 hover:bg-gray-600 hover:text-white"
                   }`}
                 >
-                  {section.name}
+                  {section.logoSmall && (
+                    <img
+                      src={`/data/${section.logoSmall}`}
+                      alt={`${section.name} logo`}
+                      className="w-5 h-5 object-contain flex-shrink-0"
+                    />
+                  )}
+                  <span>{section.name}</span>
                 </button>
               ))}
             </nav>
@@ -100,9 +107,16 @@ export function Explorer() {
               <button
                 key={subsection.name}
                 onClick={() => handleSubsectionClick(subsection)}
-                className="w-full text-left px-3 py-2 rounded-md text-sm bg-gray-700 text-gray-200 hover:bg-gray-600 hover:text-white transition-colors border-none"
+                className="w-full text-left px-3 py-2 rounded-md text-sm bg-gray-700 text-gray-200 hover:bg-gray-600 hover:text-white transition-colors border-none flex items-center gap-3"
               >
-                {subsection.name}
+                {subsection.logoSmall && (
+                  <img
+                    src={`/data/${subsection.logoSmall}`}
+                    alt={`${subsection.name} logo`}
+                    className="w-5 h-5 object-contain flex-shrink-0"
+                  />
+                )}
+                <span>{subsection.name}</span>
               </button>
             ))}
           </nav>
