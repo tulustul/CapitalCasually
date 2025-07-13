@@ -45,10 +45,9 @@ export function DataSet() {
     enabled: !!path && !!dataset,
   });
 
-  const isLoading = metadataLoading || dataLoading;
   const error = metadataError || dataError;
 
-  if (isLoading) {
+  if (metadataLoading) {
     return (
       <div className="p-8 w-full">
         <div className="flex items-center justify-center h-64">
@@ -68,7 +67,7 @@ export function DataSet() {
     );
   }
 
-  if (!metadata || !capitalData) {
+  if (!metadata) {
     return (
       <div className="p-8 w-full">
         <div className="flex items-center justify-center h-64">
@@ -96,7 +95,7 @@ export function DataSet() {
           />
         )}
 
-        {capitalData.flow && (
+        {capitalData?.flow && (
           <Sankey data={capitalData.flow} width={1400} height={600} />
         )}
 

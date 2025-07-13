@@ -157,6 +157,7 @@ export function Sankey({ data, width = 800, height = 600 }: SankeyProps) {
       .attr("fill", "#ffffff")
       .attr("font-size", "14px")
       .attr("font-weight", "bold")
+      .style("pointer-events", "none")
       .text((d: any) => {
         const value = d.value || 0;
         const formattedValue =
