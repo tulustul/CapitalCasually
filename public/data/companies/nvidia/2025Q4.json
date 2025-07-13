@@ -1,104 +1,124 @@
 {
   "$schema": "../../schemas/CapitalData.schema.json",
-  "name": "Nvidia 2026Q1",
+  "name": "Nvidia 2025Q4",
   "sources": [
-    "https://s201.q4cdn.com/141608511/files/doc_financials/2026/q1/b6df1c5c-5cb6-4a41-9d28-dd1bcd34cc26.pdf"
+    "https://s201.q4cdn.com/141608511/files/doc_financials/2025/q4/177440d5-3b32-4185-8cc8-95500a9dc783.pdf"
   ],
   "flow": [
     {
       "source": "Data Center",
       "target": "Revenue",
-      "value": 39112,
+      "value": 115186,
+      "color": "neutral"
+    },
+    {
+      "source": "Gaming",
+      "target": "Revenue",
+      "value": 11350,
       "color": "neutral"
     },
     {
       "source": "Professional Visualization",
       "target": "Revenue",
-      "value": 509,
+      "value": 1878,
       "color": "neutral"
     },
     {
       "source": "Automotive",
       "target": "Revenue",
-      "value": 567,
+      "value": 1694,
       "color": "neutral"
     },
     {
       "source": "OEM and Other",
       "target": "Revenue",
-      "value": 111,
+      "value": 389,
       "color": "neutral"
     },
-
-    {
-      "source": "Revenue",
-      "target": "Cost",
-      "value": 22667,
-      "color": "red"
-    },
+    { "source": "Revenue", "target": "Cost", "value": 32639, "color": "red" },
     {
       "source": "Cost",
       "target": "Cost of Revenue",
-      "value": 17394,
-      "color": "red"
-    },
-    { "source": "Cost", "target": "R&D", "value": 3989, "color": "red" },
-    {
-      "source": "Cost",
-      "target": "Sales & Admin",
-      "value": 1041,
-      "color": "red"
-    },
-    {
-      "source": "Cost",
-      "target": "Interest Expense",
-      "value": 63,
-      "color": "red"
-    },
-    {
-      "source": "Cost",
-      "target": "Other Expenses",
-      "value": 180,
+      "value": 32639,
       "color": "red"
     },
     {
       "source": "Revenue",
       "target": "Gross Profit",
-      "value": 21910,
+      "value": 97858,
       "color": "green"
     },
     {
+      "source": "Cost of Revenue",
+      "target": "Inventory Provisions",
+      "value": 3700,
+      "color": "red"
+    },
+    {
       "source": "Gross Profit",
+      "target": "Operating Expenses",
+      "value": 16405,
+      "color": "red"
+    },
+    {
+      "source": "Operating Expenses",
+      "target": "R&D",
+      "value": 12914,
+      "color": "red"
+    },
+    {
+      "source": "Operating Expenses",
+      "target": "Sales & Admin",
+      "value": 3491,
+      "color": "red"
+    },
+    {
+      "source": "Gross Profit",
+      "target": "Operating Income",
+      "value": 81453,
+      "color": "green"
+    },
+    {
+      "source": "Operating Income",
+      "target": "Other Income",
+      "value": 2573,
+      "color": "green"
+    },
+    {
+      "source": "Other Income",
+      "target": "Interest Income",
+      "value": 1786,
+      "color": "green"
+    },
+    {
+      "source": "Other Income",
+      "target": "Other Gains",
+      "value": 1034,
+      "color": "green"
+    },
+    {
+      "source": "Other Income",
+      "target": "Interest Expense",
+      "value": 247,
+      "color": "red"
+    },
+    {
+      "source": "Operating Income",
+      "target": "Income Before Tax",
+      "value": 84026,
+      "color": "green"
+    },
+    {
+      "source": "Income Before Tax",
       "target": "Income Tax",
-      "value": 3135,
+      "value": 11146,
       "color": "red"
     },
     {
-      "source": "Gross Profit",
+      "source": "Income Before Tax",
       "target": "Net Profit",
-      "value": 18775,
+      "value": 72880,
       "color": "green"
-    },
-
-    {
-      "source": "Cost of Revenue",
-      "target": "H20 Charge",
-      "value": 4500,
-      "color": "red"
-    },
-    {
-      "source": "Cost of Revenue",
-      "target": "Other COGS",
-      "value": 12894,
-      "color": "red"
-    },
-
-    {
-      "source": "R&D",
-      "target": "Compensation & Benefits",
-      "value": 1063,
-      "color": "red"
-    },
-    { "source": "R&D", "target": "Other R&D", "value": 2926, "color": "red" }
+    }
   ]
 }

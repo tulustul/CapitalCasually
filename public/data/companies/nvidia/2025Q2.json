@@ -1,104 +1,75 @@
 {
   "$schema": "../../schemas/CapitalData.schema.json",
-  "name": "Nvidia 2026Q1",
+  "name": "Nvidia 2025Q2",
   "sources": [
-    "https://s201.q4cdn.com/141608511/files/doc_financials/2026/q1/b6df1c5c-5cb6-4a41-9d28-dd1bcd34cc26.pdf"
+    "https://s201.q4cdn.com/141608511/files/doc_financials/2025/q3/ed2a395c-5e9b-4411-8b4a-a718d192155a.pdf"
   ],
   "flow": [
     {
       "source": "Data Center",
       "target": "Revenue",
-      "value": 39112,
+      "value": 26300,
       "color": "neutral"
     },
     {
-      "source": "Gaming",
+      "source": "Other Segments",
       "target": "Revenue",
-      "value": 3763,
+      "value": 3740,
       "color": "neutral"
     },
     {
-      "source": "Professional Visualization",
-      "target": "Revenue",
-      "value": 509,
-      "color": "neutral"
+      "source": "Revenue",
+      "target": "Gross Profit",
+      "value": 22574,
+      "color": "green"
     },
-    {
-      "source": "Automotive",
-      "target": "Revenue",
-      "value": 567,
-      "color": "neutral"
-    },
-    {
-      "source": "OEM and Other",
-      "target": "Revenue",
-      "value": 111,
-      "color": "neutral"
-    },
-
     {
       "source": "Revenue",
       "target": "Cost",
-      "value": 22667,
+      "value": 7466,
+      "color": "red"
+    },
+    {
+      "source": "Gross Profit",
+      "target": "Net Income",
+      "value": 16599,
+      "color": "green"
+    },
+    {
+      "source": "Gross Profit",
+      "target": "Income Tax Expense",
+      "value": 2615,
       "color": "red"
     },
     {
       "source": "Cost",
       "target": "Cost of Revenue",
-      "value": 17394,
-      "color": "red"
-    },
-    { "source": "Cost", "target": "R&D", "value": 3989, "color": "red" },
-    {
-      "source": "Cost",
-      "target": "Sales & Admin",
-      "value": 1041,
+      "value": 7466,
       "color": "red"
     },
     {
-      "source": "Cost",
+      "source": "Operating Expenses",
+      "target": "Research and development",
+      "value": 3090,
+      "color": "red"
+    },
+    {
+      "source": "Operating Expenses",
+      "target": "Sales, general and administrative",
+      "value": 842,
+      "color": "red"
+    },
+    {
+      "source": "Operating Expenses",
       "target": "Interest Expense",
-      "value": 63,
+      "value": 61,
       "color": "red"
     },
     {
-      "source": "Cost",
-      "target": "Other Expenses",
-      "value": 180,
+      "source": "Operating Expenses",
+      "target": "Total Operating Expenses",
+      "value": 3932,
       "color": "red"
-    },
-    {
-      "source": "Revenue",
-      "target": "Gross Profit",
-      "value": 21910,
-      "color": "green"
-    },
-    {
-      "source": "Gross Profit",
-      "target": "Income Tax",
-      "value": 3135,
-      "color": "red"
-    },
-    {
-      "source": "Gross Profit",
-      "target": "Net Profit",
-      "value": 18775,
-      "color": "green"
-    },
-
-    {
-      "source": "Cost of Revenue",
-      "target": "Other COGS",
-      "value": 12894,
-      "color": "red"
-    },
-
-    {
-      "source": "R&D",
-      "target": "Compensation & Benefits",
-      "value": 1063,
-      "color": "red"
-    },
-    { "source": "R&D", "target": "Other R&D", "value": 2926, "color": "red" }
+    }
   ]
 }
