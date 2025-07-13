@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Sankey } from "../charts/Sankey";
 import type { CapitalMetadata, CapitalData } from "../dataTypes";
 import { Timeline } from "../components/Timeline";
+import { Spinner } from "../components/Spinner";
 import { useState } from "react";
 
 export function DataSet() {
@@ -31,7 +32,7 @@ export function DataSet() {
 
   const {
     data: capitalData,
-    isLoading: dataLoading,
+    isFetching: capitalDataFetching,
     error: dataError,
   } = useQuery({
     queryKey: ["capitalData", path, dataset],
@@ -43,6 +44,8 @@ export function DataSet() {
       return response.json();
     },
     enabled: !!path && !!dataset,
+    placeholderData: (previousData) => previousData,
+    staleTime: Infinity,
   });
 
   const error = metadataError || dataError;
@@ -88,11 +91,18 @@ export function DataSet() {
         )}
 
         {metadata.datasets.length > 1 && (
-          <Timeline
-            quarters={metadata.datasets}
-            value={dataset ?? metadata.datasets[metadata.datasets.length - 1]}
-            onChange={setDataset}
-          />
+          <div className="relative">
+            <Timeline
+              quarters={metadata.datasets}
+              value={dataset ?? metadata.datasets[metadata.datasets.length - 1]}
+              onChange={setDataset}
+            />
+            {capitalDataFetching && (
+              <div className="absolute w-full z-100 flex justify-center">
+                <Spinner size="lg" />
+              </div>
+            )}
+          </div>
         )}
 
         {capitalData?.flow && (
