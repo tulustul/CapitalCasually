@@ -137,7 +137,7 @@ export function Timeline({ quarters, value, onChange }: Props) {
       e.preventDefault();
       e.stopPropagation();
     };
-    const handleGlobalMouseUp = (e: MouseEvent) => {
+    const handleGlobalMouseUp = () => {
       setIsDragging(false);
     };
 
