@@ -82,34 +82,38 @@ export function DataSet() {
   }
 
   return (
-    <div className="p-8 w-full">
-      <div className="w-full flex flex-col gap-6 items-center">
-        <div className="flex gap-5 items-center">
-          {metadata.logoSmall && (
-            <img src={metadata.logoSmall} alt="Logo" className="h-12" />
-          )}
-          <h1 className="text-3xl font-bold text-white mb-2">
-            {metadata.name}
-          </h1>
-        </div>
-        {/* {metadata.description && (
+    <div className="p-8 w-full h-full">
+      <div className="w-full h-full flex flex-col gap-6 items-center justify-between">
+        <div className="flex items-center flex-col gap-10">
+          <div className="flex gap-5 items-center">
+            {metadata.logoSmall && (
+              <img src={metadata.logoSmall} alt="Logo" className="h-12" />
+            )}
+            <h1 className="text-3xl font-bold text-white mb-2">
+              {metadata.name}
+            </h1>
+          </div>
+          {/* {metadata.description && (
           <p className="text-gray-300 mb-6 text-lg">{metadata.description}</p>
         )} */}
 
-        {metadata.datasets.length > 1 && (
-          <div className="relative">
-            <Timeline
-              quarters={metadata.datasets}
-              value={dataset ?? metadata.datasets[metadata.datasets.length - 1]}
-              onChange={setDataset}
-            />
-            {capitalDataFetching && (
-              <div className="absolute w-full z-100 flex justify-center">
-                <Spinner size="lg" />
-              </div>
-            )}
-          </div>
-        )}
+          {metadata.datasets.length > 1 && (
+            <div className="relative">
+              <Timeline
+                quarters={metadata.datasets}
+                value={
+                  dataset ?? metadata.datasets[metadata.datasets.length - 1]
+                }
+                onChange={setDataset}
+              />
+              {capitalDataFetching && (
+                <div className="absolute w-full z-100 flex justify-center">
+                  <Spinner size="lg" />
+                </div>
+              )}
+            </div>
+          )}
+        </div>
 
         {capitalData?.flow && (
           <Sankey data={capitalData.flow} width={1400} height={600} />

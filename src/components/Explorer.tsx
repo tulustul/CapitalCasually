@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useNavigate, useLocation } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import type { DataIndex, DataIndexSection } from "../dataTypes";
 import logo from "../assets/logo.png";
 
 export function Explorer() {
-  const [selectedSection, setSelectedSection] =
-    useState<DataIndexSection | null>(null);
+  const [navigationStack, setNavigationStack] = useState<DataIndexSection[]>(
+    [],
+  );
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -25,51 +27,83 @@ export function Explorer() {
     },
   });
 
+  const currentSection = navigationStack[navigationStack.length - 1];
+  const currentSections = currentSection
+    ? currentSection.sections
+    : dataIndex?.sections;
+
   const handleSectionClick = (section: DataIndexSection) => {
     if (section.path) {
       navigate(`/dataset/${section.path}`);
     } else if (section.sections) {
-      setSelectedSection(section);
+      setNavigationStack((prev) => [...prev, section]);
       if (location.pathname.startsWith("/dataset/")) {
         navigate("/");
       }
     }
   };
 
-  const handleSubsectionClick = (subsection: DataIndexSection) => {
-    if (subsection.path) {
-      navigate(`/dataset/${subsection.path}`);
+  const handleBackClick = () => {
+    setNavigationStack((prev) => prev.slice(0, -1));
+    if (location.pathname.startsWith("/dataset/")) {
+      navigate("/");
     }
   };
 
-  const mainSidebarWidth = selectedSection?.sections ? "w-48" : "w-64";
-
   return (
-    <>
-      {/* Main Sidebar */}
-      <div
-        className={`${mainSidebarWidth} border-r border-gray-700 bg-gray-800 transition-all duration-200`}
-      >
-        <div className="p-4 border-b border-gray-700">
-          <a href="/" className="block hover:opacity-80 transition-opacity">
-            <img src={logo} alt="Logo" className="h-12 mb-2" />
-          </a>
-          <p className="text-xs text-gray-400 mt-1">Explore financial data</p>
-        </div>
+    <div className="w-64 border-r border-gray-700 bg-gray-800 min-w-60">
+      <div className="p-4 border-b border-gray-700">
+        <a href="/" className="block hover:opacity-80 transition-opacity">
+          <img src={logo} alt="Logo" className="h-16 mb-2" />
+        </a>
+        <p className="text-xs text-gray-400 mt-1">Explore financial data</p>
+      </div>
 
-        <div className="p-2">
-          {isLoading ? (
-            <div className="px-3 py-2 text-gray-400">Loading...</div>
-          ) : error ? (
-            <div className="px-3 py-2 text-red-400">Error loading data</div>
-          ) : (
-            <nav className="space-y-1">
-              {dataIndex?.sections.map((section) => (
+      {/* Back button */}
+      {navigationStack.length > 0 && (
+        <div className="p-2 border-b border-gray-700">
+          <button
+            onClick={handleBackClick}
+            className="w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors border-none flex items-center gap-3 bg-gray-700 text-gray-200 hover:bg-gray-600 hover:text-white cursor-pointer"
+          >
+            <ArrowLeft size={16} className="flex-shrink-0" />
+            <span>Back</span>
+          </button>
+        </div>
+      )}
+
+      {/* Current section header */}
+      {currentSection && (
+        <div className="p-4 border-b border-gray-700">
+          <h3 className="text-md font-medium text-white">
+            {currentSection.name}
+          </h3>
+          {currentSection.description && (
+            <p className="text-sm text-gray-400 mt-1">
+              {currentSection.description}
+            </p>
+          )}
+        </div>
+      )}
+
+      <div className="p-2">
+        {isLoading ? (
+          <div className="px-3 py-2 text-gray-400">Loading...</div>
+        ) : error ? (
+          <div className="px-3 py-2 text-red-400">Error loading data</div>
+        ) : currentSections && currentSections.length > 0 ? (
+          <nav className="space-y-1">
+            {currentSections.map((section) => {
+              const isActive =
+                section.path &&
+                location.pathname === `/dataset/${section.path}`;
+
+              return (
                 <button
                   key={section.name}
                   onClick={() => handleSectionClick(section)}
-                  className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors border-none flex items-center gap-3 ${
-                    selectedSection?.name === section.name
+                  className={`w-full text-left px-3 py-2 rounded-md text-sm font-medium transition-colors border-none flex items-center gap-3 cursor-pointer ${
+                    isActive
                       ? "bg-blue-600 text-white"
                       : "bg-gray-700 text-gray-200 hover:bg-gray-600 hover:text-white"
                   }`}
@@ -83,45 +117,13 @@ export function Explorer() {
                   )}
                   <span>{section.name}</span>
                 </button>
-              ))}
-            </nav>
-          )}
-        </div>
-      </div>
-
-      {/* Secondary Sidebar for Subsections */}
-      {selectedSection?.sections && (
-        <div className="w-64 border-r border-gray-700 bg-gray-800">
-          <div className="p-4 border-b border-gray-700">
-            <h3 className="text-md font-medium text-white">
-              {selectedSection.name}
-            </h3>
-            {selectedSection.description && (
-              <p className="text-sm text-gray-400 mt-1">
-                {selectedSection.description}
-              </p>
-            )}
-          </div>
-          <nav className="space-y-1 px-2 py-2">
-            {selectedSection.sections.map((subsection) => (
-              <button
-                key={subsection.name}
-                onClick={() => handleSubsectionClick(subsection)}
-                className="w-full text-left px-3 py-2 rounded-md text-sm bg-gray-700 text-gray-200 hover:bg-gray-600 hover:text-white transition-colors border-none flex items-center gap-3"
-              >
-                {subsection.logoSmall && (
-                  <img
-                    src={`/data/${subsection.logoSmall}`}
-                    alt={`${subsection.name} logo`}
-                    className="w-5 h-5 object-contain flex-shrink-0"
-                  />
-                )}
-                <span>{subsection.name}</span>
-              </button>
-            ))}
+              );
+            })}
           </nav>
-        </div>
-      )}
-    </>
+        ) : (
+          <div className="px-3 py-2 text-gray-400">No items</div>
+        )}
+      </div>
+    </div>
   );
 }
