@@ -3,5 +3,7 @@
   "type": "company",
   "name": "Apple",
   "description": "Apple Inc. is an American multinational technology company headquartered in Cupertino, California, that designs, develops, and sells consumer electronics, computer software, and online services. It is one of the Big Five technology companies, alongside Amazon, Alphabet, Microsoft, and Meta.",
+  "logoSmall": "/data/companies/apple/logo.svg",
+  "logoBig": "/data/companies/apple/logo.svg",
   "datasets": ["2025Q2"]
 }

@@ -4,6 +4,7 @@ import { Sankey } from "../charts/Sankey";
 import type { CapitalMetadata, CapitalData } from "../dataTypes";
 import { Timeline } from "../components/Timeline";
 import { Spinner } from "../components/Spinner";
+import { DatasetMetadata } from "../components/DatasetMetadata";
 import { useState } from "react";
 
 export function DataSet() {
@@ -83,12 +84,17 @@ export function DataSet() {
   return (
     <div className="p-8 w-full">
       <div className="w-full flex flex-col gap-6 items-center">
-        <h1 className="text-3xl font-bold text-white mb-2">
-          {metadata.name || path}
-        </h1>
-        {metadata.description && (
+        <div className="flex gap-5 items-center">
+          {metadata.logoSmall && (
+            <img src={metadata.logoSmall} alt="Logo" className="h-12" />
+          )}
+          <h1 className="text-3xl font-bold text-white mb-2">
+            {metadata.name}
+          </h1>
+        </div>
+        {/* {metadata.description && (
           <p className="text-gray-300 mb-6 text-lg">{metadata.description}</p>
-        )}
+        )} */}
 
         {metadata.datasets.length > 1 && (
           <div className="relative">
@@ -109,32 +115,7 @@ export function DataSet() {
           <Sankey data={capitalData.flow} width={1400} height={600} />
         )}
 
-        <div className="bg-gray-800 rounded-lg p-6 border border-gray-700">
-          <p className="text-gray-300">
-            This Sankey diagram shows financial flows for:{" "}
-            <span className="font-medium text-white">
-              {metadata.name || path}
-            </span>
-          </p>
-          {capitalData?.sources && capitalData.sources.length > 0 && (
-            <div className="mt-4">
-              <p className="text-sm text-gray-400 mb-2">Data sources:</p>
-              <div className="flex flex-col gap-1">
-                {capitalData.sources.map((source, index) => (
-                  <a
-                    key={index}
-                    href={source}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-400 hover:text-blue-300 text-sm underline"
-                  >
-                    {source}
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
-        </div>
+        {capitalData && <DatasetMetadata capitalData={capitalData} />}
       </div>
     </div>
   );
